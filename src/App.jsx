@@ -17,6 +17,8 @@ function App() {
   const [error, setError] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const numPage = 1;
+  const numResultsPerPage = 20;
 
   const fetchImages = async (searchQuery, numPage) => {
     try {
@@ -29,7 +31,7 @@ function App() {
           },
         }
       );
-      return res.data.results.slice(0,9);
+      return res.data.results;
     } catch (error) {
       setError(error.message);
       return[];
